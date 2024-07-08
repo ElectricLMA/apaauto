@@ -4,3 +4,5 @@ Legacy readme:
 ----------------
 Hardcoded Username: hardloginapaauto
 Hardcoded Password: passloginapaauto
+
+Update history from relese:
