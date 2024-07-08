@@ -1,14 +1,14 @@
 [
     {
-        "name": "John Doe",
-        "username": "john_doe",
-        "email": "john@example.com",
-        "password": "johns_password"
+        "name": "Luke Aylwin",
+        "username": "gooaylwinl",
+        "email": "GOOAylwinL@twb.catholic.edu.au",
+        "password": "Yellow340"
     },
     {
-        "name": "Jane Smith",
-        "username": "jane_smith",
-        "email": "jane@example.com",
-        "password": "janes_password"
+        "name": "Example",
+        "username": "example_username",
+        "email": "example@example.com",
+        "password": "example_password"
     }
 ]
