@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Encoder/Decoder</title>
+    <title>Encode and Decode Password</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +23,12 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        input[type="password"] {
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
             width: calc(100% - 20px);
             padding: 8px;
             margin-bottom: 10px;
@@ -37,42 +42,50 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
             background-color: #45a049;
         }
-        .result {
+        p {
             margin-top: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h2>Password Encoder/Decoder</h2>
-    <form id="passwordEncoderDecoderForm">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+    <h2>Encode and Decode Password</h2>
+    <form id="passwordForm">
+        <label for="password">Enter Password:</label>
+        <input type="text" id="password" name="password" required><br><br>
         
         <button type="button" onclick="encodePassword()">Encode Password</button>
         <button type="button" onclick="decodePassword()">Decode Password</button>
     </form>
 
-    <div id="encodedPassword" class="result"></div>
-    <div id="decodedPassword" class="result"></div>
+    <p id="encodedPassword"></p>
+    <p id="decodedPassword"></p>
 
     <script>
         function encodePassword() {
             var password = document.getElementById('password').value;
-            var encodedPassword = btoa(password); // Base64 encoding
-
-            document.getElementById('encodedPassword').textContent = 'Encoded Password: ' + encodedPassword;
-            document.getElementById('decodedPassword').textContent = ''; // Clear decoded password
+            var encodedPassword = btoa(password);
+            document.getElementById('encodedPassword').textContent = "Encoded Password: " + encodedPassword;
+            document.getElementById('decodedPassword').textContent = ""; // Clear decoded password field
         }
 
         function decodePassword() {
-            var encodedPassword = document.getElementById('encodedPassword').textContent.trim().replace('Encoded Password: ', '');
-            var decodedPassword = atob(encodedPassword); // Base64 decoding
-
-            document.getElementById('decodedPassword').textContent = 'Decoded Password: ' + decodedPassword;
+            var encodedPassword = document.getElementById('encodedPassword').textContent.split("Encoded Password: ")[1];
+            if (encodedPassword) {
+                try {
+                    var decodedPassword = atob(encodedPassword);
+                    document.getElementById('decodedPassword').textContent = "Decoded Password: " + decodedPassword;
+                } catch (error) {
+                    document.getElementById('decodedPassword').textContent = "Invalid Base64 string";
+                }
+            } else {
+                document.getElementById('decodedPassword').textContent = "No encoded password to decode";
+            }
         }
     </script>
 </body>
