@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Encoder</title>
+    <title>Password Encoder/Decoder</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,18 +41,23 @@
         button:hover {
             background-color: #45a049;
         }
+        .result {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h2>Password Encoder</h2>
-    <form id="passwordEncoderForm">
+    <h2>Password Encoder/Decoder</h2>
+    <form id="passwordEncoderDecoderForm">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         
         <button type="button" onclick="encodePassword()">Encode Password</button>
+        <button type="button" onclick="decodePassword()">Decode Password</button>
     </form>
 
-    <div id="encodedPassword"></div>
+    <div id="encodedPassword" class="result"></div>
+    <div id="decodedPassword" class="result"></div>
 
     <script>
         function encodePassword() {
@@ -60,6 +65,14 @@
             var encodedPassword = btoa(password); // Base64 encoding
 
             document.getElementById('encodedPassword').textContent = 'Encoded Password: ' + encodedPassword;
+            document.getElementById('decodedPassword').textContent = ''; // Clear decoded password
+        }
+
+        function decodePassword() {
+            var encodedPassword = document.getElementById('encodedPassword').textContent.trim().replace('Encoded Password: ', '');
+            var decodedPassword = atob(encodedPassword); // Base64 decoding
+
+            document.getElementById('decodedPassword').textContent = 'Decoded Password: ' + decodedPassword;
         }
     </script>
 </body>
