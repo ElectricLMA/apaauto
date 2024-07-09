@@ -3,12 +3,12 @@
         "name": "Luke Aylwin",
         "username": "gooaylwinl",
         "email": "lukeaylwin@hotmail.com",
-        "password_encoded_id": "RWxFcGFzczEzNjEwIQ=="  // Example encoded password
+        "password_encoded_id": "RWxFcGFzczEzNjEwIQ=="
     },
     {
         "name": "Example",
         "username": "example_username",
         "email": "example@example.com",
-        "password_encoded_id": "ZXhhbXBsZV9wYXNzd29yZA=="  // Example encoded password
+        "password_encoded_id": "ZXhhbXBsZV9wYXNzd29yZA=="
     }
 ]
