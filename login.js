@@ -13,7 +13,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             // Check if any user in the JSON matches the entered credentials
             var loggedIn = false;
             data.forEach(userData => {
-                if (userData.username === username && userData.email === email && userData.password === password) {
+                if (userData.username === username && userData.email === email && encodePassword(password) === userData.password_encoded_id) {
                     loggedIn = true;
                 }
             });
@@ -29,6 +29,10 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             console.error('Error fetching JSON:', error);
         });
 });
+
+function encodePassword(password) {
+    return btoa(password); // Base64 encoding
+}
 
 function goToGuestMode() {
     window.location.href = 'apamenu.html'; // Redirect to guest mode page
