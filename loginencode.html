@@ -67,15 +67,19 @@
     <p id="decodedPassword"></p>
 
     <script>
+        // Function to encode the password to Base64
         function encodePassword() {
             var password = document.getElementById('password').value;
             var encodedPassword = btoa(password);
             document.getElementById('encodedPassword').textContent = "Encoded Password: " + encodedPassword;
             document.getElementById('decodedPassword').textContent = ""; // Clear decoded password field
+            // Store the encoded password in localStorage
+            localStorage.setItem('encodedPassword', encodedPassword);
         }
 
+        // Function to decode the password from Base64
         function decodePassword() {
-            var encodedPassword = document.getElementById('encodedPassword').textContent.split("Encoded Password: ")[1];
+            var encodedPassword = localStorage.getItem('encodedPassword');
             if (encodedPassword) {
                 try {
                     var decodedPassword = atob(encodedPassword);
@@ -84,9 +88,14 @@
                     document.getElementById('decodedPassword').textContent = "Invalid Base64 string";
                 }
             } else {
-                document.getElementById('decodedPassword').textContent = "No encoded password to decode";
+                document.getElementById('decodedPassword').textContent = "No encoded password found in localStorage";
             }
         }
+
+        // Load and decode the password on page load, if available
+        window.onload = function() {
+            decodePassword();
+        };
     </script>
 </body>
 </html>
