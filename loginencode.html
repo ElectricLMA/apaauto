@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Encoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Password Encoder</h2>
+    <form id="passwordEncoderForm">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="button" onclick="encodePassword()">Encode Password</button>
+    </form>
+
+    <div id="encodedPassword"></div>
+
+    <script>
+        function encodePassword() {
+            var password = document.getElementById('password').value;
+            var encodedPassword = btoa(password); // Base64 encoding
+
+            document.getElementById('encodedPassword').textContent = 'Encoded Password: ' + encodedPassword;
+        }
+    </script>
+</body>
+</html>
