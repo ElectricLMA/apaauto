@@ -6,14 +6,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     
-    // Construct JSON object to match login.json structure
-    var user = {
-        "name": "User", // Hardcoded for simplicity
-        "username": username,
-        "email": email,
-        "password": password
-    };
-
     // Read login.json and check for authentication
     fetch('login.json')
         .then(response => response.json())
@@ -21,7 +13,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             // Check if any user in the JSON matches the entered credentials
             var loggedIn = false;
             data.forEach(userData => {
-                if (userData.username === user.username && userData.email === user.email && userData.password === user.password) {
+                if (userData.username === username && userData.email === email && userData.password === password) {
                     loggedIn = true;
                 }
             });
