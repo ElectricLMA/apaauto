@@ -39,7 +39,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 
 function goToGuestMode() {
-    window.location.href = 'apamenu.html'; // Redirect to guest mode page
+    window.location.href = 'guestmenu.html'; // Redirect to guest mode page
 }
 
 function goToSignUp() {
