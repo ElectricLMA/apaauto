@@ -5,6 +5,13 @@
         "email": "lukeaylwin@hotmail.com",
         "password": "ELEpass1360!"
     },
+    [
+    {
+        "name": "Malcolm Mooney",
+        "username": "mooney",
+        "email": "Goomooneym@twb.catholic.edu.au",
+        "password": "banana"
+    },
     {
         "name": "Example",
         "username": "example_username",
